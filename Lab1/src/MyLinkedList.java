@@ -23,11 +23,11 @@ public class MyLinkedList<E> implements ListInterface<E> {
 	}
 
 	@Override
-	public void addAfter(E item, Node curr) {
+	public void addAfter(E item, Node<E> curr) {
 		if (curr == null)
 			head = new Node<E>(item, head);
 		else {
-			Node<E> newNode = new Node(item, curr.getNext());
+			Node<E> newNode = new Node<E>(item, curr.getNext());
 			curr.setNext(newNode);
 		}
 		numNode++;
@@ -62,7 +62,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
 	}
 
 	@Override
-	public E removeAfter(Node curr) throws NoSuchElementException {
+	public E removeAfter(Node<E> curr) throws NoSuchElementException {
 		if (curr == null)
 			throw new NoSuchElementException("can't remove element form an empty list");
 		else {
@@ -151,7 +151,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
 			throw new NoSuchElementException("can't remove element form an empty list");
 		else {
 			Node<E> tmp = head;
-			Node<E> prevNode  = tmp;
+			Node<E> prevNode = tmp;
 			while (tmp.getNext() != curr) {
 				prevNode = tmp;
 				tmp = tmp.getNext();
